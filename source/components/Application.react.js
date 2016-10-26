@@ -9,6 +9,7 @@ var Application = React.createClass({
 		};
 	},
 
+	//添加一条推文到集合中
 	addTweetToCollection: function(tweet) {
 		var collectionTweets = this.state.collectionTweets;
 
@@ -19,6 +20,7 @@ var Application = React.createClass({
 		});
 	},
 
+	//从集合中删除特定的推文
 	removeTweetFromCollection: function(tweet) {
 		var collectionTweets = this.state.collectionTweets;
 
@@ -29,6 +31,7 @@ var Application = React.createClass({
 		});
 	},
 
+	//从集合中删除所有的推文
 	removeAllTweetFromCollection: function() {
 		this.setState({
 			collectionTweets: {}
@@ -40,7 +43,7 @@ var Application = React.createClass({
 			<div className="container-fluid">
 				<div className="row">
 					<div className="col-md-4 text-center">
-						<Steam onAddTweetToCollection={this.addTweetToCollection} />
+						<Steam onAddTweetToCollection={this.addTweetToCollection} /> 
 					</div>
 					<div className="col-md-8">
 						<Collection

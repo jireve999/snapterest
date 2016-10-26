@@ -29,11 +29,47 @@ var SteamTweet = React.createClass({
 		window.snapterest.headerHtml = componentDOMRepresentation.children[0].outerHTML; //<Header />组件DOM
 		window.snapterest.tweetHtml = componentDOMRepresentation.children[1].outherHTML; //<Tweet />组件DOM
 	},
+	componentWillReceiveProps: function(nextProps) {
+		console.log('[Snapterest] StreamTweet: 4.Running componentWillReceiveProps()');
+
+		var currentTweetLength = this.props.tweet.text.length;
+		var nextTweetLength = nextProps.tweet.next.length;
+		var isNumberOfCharactersIncreasing = (nextTweetLength > Current);
+		var headerText;
+
+		this.setState({
+			numberOfCharactersIsIncreasing: isNumberOfCharactersIncreasing
+		});
+
+		if (isNumberOfCharactersIncreasing) {
+			headerText = 'Number of characters is increasing';
+		} else {
+			headerText = 'Latest public photo from Twitter';
+		}
+
+		this.setState({
+			headerText: headerText
+		});
+
+		window.snapterest.numberOfReceivedTweet++;
+	},
+	shouldComponentUpdate: function(nextProps, nextState) { //阻止显示下一条内容少于一个字符的推文
+		console.log('[Snapterest] StreamTweet: 5.Running shouldComponentUpdate()');
+
+		return (nextProps.tweet.text.length > 1);
+	},
+	componentWillUpdate: function(nextProps, nextState) {
+		console.log('[Snapterest] StreamTweet: 6.Running componentWillUpdate()');
+	},
+	componentDidUpdate: function(prevProps, prevState) { //全局对象中增加已显示推文的数量
+		console.log('[Snapterest] StreamTweet: 7.Running componentDidUpdate()');
+		window.snapterest.numberOfDisplayedTweets++;
+	}
 	componentWillUnmount: function() {
 		console.log('[Snapterest] StreamTweet: 8.Running componentWillUnmount()');
 
 		delete window.snapterest;
-	}
+	},
 	render: function() {
 		console.log('[Snapterest] StreamTweet: Running render()');
 
