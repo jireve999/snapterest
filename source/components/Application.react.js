@@ -32,7 +32,7 @@ var Application = React.createClass({
 	},
 
 	//从集合中删除所有的推文
-	removeAllTweetFromCollection: function() {
+	removeAllTweetsFromCollection: function() {
 		this.setState({
 			collectionTweets: {}
 		});
@@ -49,7 +49,7 @@ var Application = React.createClass({
 						<Collection
 							tweets={this.state.collectionTweets}
 							onRemoveTweetFromCollection={this.removeTweetFromCollection}
-							onRemoveAllTweetsFromCollection={this.removeAllTweetFromCollection}
+							onRemoveAllTweetsFromCollection={this.removeAllTweetsFromCollection}
 						/>
 					</div>
 				</div>
