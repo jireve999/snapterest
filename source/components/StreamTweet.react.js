@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 var Header = require('./Header.react');
 var Tweet = require('./Tweet.react');
 
+
 var SteamTweet = React.createClass({
 	getInitialState: function() {
 		console.log('[Snapterest] StreamTweet: 1.Running getInitialState()');
@@ -64,9 +65,9 @@ var SteamTweet = React.createClass({
 	componentDidUpdate: function(prevProps, prevState) { //全局对象中增加已显示推文的数量
 		console.log('[Snapterest] StreamTweet: 7.Running componentDidUpdate()');
 		window.snapterest.numberOfDisplayedTweets++;
-	}
+	},
 	componentWillUnmount: function() {
-		console.log('[Snapterest] StreamTweet: 8.Running componentWillUnmount()');
+		console.log('[Snapterest] StreamTweet: 8. Running componentWillUnmount()');
 
 		delete window.snapterest;
 	},
@@ -75,13 +76,13 @@ var SteamTweet = React.createClass({
 
 		return (
 			<section>
-				<Header text={this.state.headerText} />
-				<Tweet 
-					tweet={this.props.tweet}
-					onImageClick={this.props.onAddTweetToCollection} />
-			</section>
+	        <Header text={this.state.headerText} />
+	        <Tweet
+	          tweet={this.props.tweet}
+	          onImageClick={this.props.onAddTweetToCollection} />
+	      </section>
 		);
 	}
 });
 
-module.export = SteamTweet;
+module.exports = SteamTweet;

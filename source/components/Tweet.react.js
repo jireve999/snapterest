@@ -1,4 +1,4 @@
-var React = requier('react');
+var React = require('react');
 
 var tweetStyle = {
 	position: 'relative',
@@ -15,6 +15,7 @@ var imageStyle = {
 };
 
 var Tweet = React.createClass({
+
 	propTypes: {
 		tweet: function(properties, propertyName, componentName) {
 			var tweet = properties[propertyName];
@@ -22,9 +23,10 @@ var Tweet = React.createClass({
 			if (!tweet) {
 				return new Error('Tweet must be set.');
 			}
+
 			if (!tweet.media) {
 				return new Error('Tweet must have an image.');
-			},
+			}
 		},
 		onImageClick: React.PropTypes.func
 	},
@@ -32,6 +34,7 @@ var Tweet = React.createClass({
 	handleImageClick: function() {
 		var tweet = this.props.tweet;
 		var onImageClick = this.props.onImageClick;
+
 		if (onImageClick) {
 			onImageClick(tweet);
 		}
@@ -43,8 +46,8 @@ var Tweet = React.createClass({
 
 		return (
 			<div style={tweetStyle}>
-				<img src={tweetMediaUrl} onClick={this.handleImageClick} style={imageStyle} />
-			</div>
+        <img src={tweetMediaUrl} onClick={this.handleImageClick} style={imageStyle} />
+      </div>
 		);
 	}
 });

@@ -43,7 +43,7 @@ var Application = React.createClass({
 			<div className="container-fluid">
 				<div className="row">
 					<div className="col-md-4 text-center">
-						<Steam onAddTweetToCollection={this.addTweetToCollection} /> 
+						<Stream onAddTweetToCollection={this.addTweetToCollection} /> 
 					</div>
 					<div className="col-md-8">
 						<Collection

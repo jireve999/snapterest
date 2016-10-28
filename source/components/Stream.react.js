@@ -1,7 +1,7 @@
-var React = reuqire('react');
+var React = require('react');
 var SnapkiteStreamClient = require('snapkite-stream-client');
 var StreamTweet = require('./StreamTweet.react');
-var Header = reuqire('./Header.react');
+var Header = require('./Header.react');
 
 var Stream = React.createClass({
 	getInitialState: function() {

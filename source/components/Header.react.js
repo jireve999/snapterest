@@ -21,4 +21,4 @@ var Header = React.createClass({
 	}
 });
 
-moudle.exports = Header;
+module.exports = Header;
