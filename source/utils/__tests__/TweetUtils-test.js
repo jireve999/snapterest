@@ -14,6 +14,6 @@ describe('Tweet utilities module', function() {
 		var expectedListOfTweetIds = ['tweet1', 'tweet2', 'tweet3'];
 		var actualListOfTweetIds = TweetUtils.getListOfTweetIds(tweetsMock);
 
-		expect(actualListOfTweetIds).toEqual(expectedListOfTweetIds);
+		expect(actualListOfTweetIds).toEqual(expectedListOfTweetIds); //深度比较，适合数组
 	});
 });
